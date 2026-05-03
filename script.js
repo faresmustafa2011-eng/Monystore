@@ -1164,7 +1164,7 @@ function viewProduct(id) {
       </div>
       
       <div class="pd-actions" style="display:flex; gap:10px; flex-wrap: wrap;">
-        <button class="btn btn-outline" style="color:var(--text-color); border-color:var(--primary-color)" onclick="addToCartFromDetail()">
+        <button class="btn btn-add-cart" onclick="addToCartFromDetail()">
           <i class="fas fa-shopping-cart"></i> ${translations[lang].add_to_cart}
         </button>
         <button class="btn btn-primary" onclick="orderWhatsApp('${product.title.replace(/'/g, "\\'")}')">
