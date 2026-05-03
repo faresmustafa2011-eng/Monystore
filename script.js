@@ -615,6 +615,17 @@ const translations = {
     subscriber_deleted: "تم حذف المشترك.",
     all_subscribers_deleted: "تم حذف جميع المشتركين.",
     confirm_delete_all: "هل أنت متأكد من حذف جميع المشتركين؟",
+    login: "تسجيل الدخول",
+    signup: "إنشاء حساب",
+    full_name: "الاسم بالكامل",
+    email: "البريد الإلكتروني",
+    password: "كلمة المرور",
+    login_btn: "دخول",
+    signup_btn: "إنشاء الحساب",
+    auth_success: "مرحباً بعودتك!",
+    signup_success: "تم إنشاء الحساب بنجاح!",
+    logout: "تسجيل الخروج",
+    profile: "ملفي الشخصي",
     cart_title: "عربة التسوق",
     empty_cart: "عربة التسوق فارغة.",
     add_to_cart: "أضف إلى العربة",
@@ -1454,6 +1465,9 @@ function initScrollAnimations() {
     }
   });
 }
+
+
+
 
 /* ===== CART UI LOGIC ===== */
 const cartToggle = document.getElementById("cartToggle");
