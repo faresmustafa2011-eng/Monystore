@@ -2648,6 +2648,9 @@ body.dark-mode .color-btn {
 }
 
 @media (max-width: 768px) {
+  html {
+    font-size: 17px;
+  }
   .section {
     padding: 60px 0;
   }
@@ -2849,6 +2852,27 @@ body.dark-mode .color-btn {
   }
   .btn {
     font-size: 1rem;
+  }
+}
+
+/* Universal ultra-small device support (iPhone SE old, etc.) */
+@media (max-width: 350px) {
+  .logo {
+    font-size: 1.25rem;
+  }
+  .icon-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+  .nav-actions {
+    gap: 5px;
+  }
+  .container, .nav-container {
+    padding: 0 5px;
+  }
+  .hero-title {
+    font-size: 1.8rem;
   }
 }
 
