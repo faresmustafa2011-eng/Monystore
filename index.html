@@ -1,0 +1,855 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Mony Store – Premium fashion for Men, Women & Kids. Order via WhatsApp."
+    />
+    <title>Mony Store | Premium Fashion</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Cairo:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body class="light-mode">
+    <!-- Loading Overlay -->
+    <div id="loader" class="loader">
+      <div class="loader-inner">
+        <div class="loader-logo">MONY<span>STORE</span></div>
+        <div class="loader-bar"><div class="loader-progress"></div></div>
+      </div>
+    </div>
+
+    <!-- Scroll to Top -->
+    <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Floating WhatsApp Button -->
+    <a
+      href="https://wa.me/201065291552"
+      target="_blank"
+      class="whatsapp-float"
+      aria-label="Chat on WhatsApp"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- ===== NAVBAR ===== -->
+    <header id="navbar" class="navbar">
+      <div class="nav-container">
+        <a href="#home" class="logo" onclick="showPage('home')"
+          >MONY<span>STORE</span></a
+        >
+        <nav class="nav-links" id="navLinks">
+          <a href="#home" onclick="showPage('home')" class="nav-link active" data-i18n="nav_home"
+            >Home</a
+          >
+          <a
+            href="#categories"
+            onclick="showPage('categories')"
+            class="nav-link"
+            data-i18n="nav_categories"
+            >Categories</a
+          >
+          <a href="#products" onclick="showPage('products')" class="nav-link" data-i18n="nav_products"
+            >Products</a
+          >
+          <a href="#about" onclick="showPage('about')" class="nav-link" data-i18n="nav_about"
+            >About</a
+          >
+          <a href="#contact" onclick="showPage('contact')" class="nav-link" data-i18n="nav_contact"
+            >Contact</a
+          >
+        </nav>
+        <div class="nav-actions">
+          <button id="searchToggle" class="icon-btn" aria-label="Search">
+            <i class="fas fa-search"></i>
+          </button>
+          <button id="langToggle" class="icon-btn" aria-label="Toggle language">
+            <i class="fas fa-globe"></i>
+          </button>
+          <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">
+            <i class="fas fa-moon"></i>
+          </button>
+          <a
+            href="https://wa.me/201065291552"
+            target="_blank"
+            class="nav-whatsapp"
+            ><i class="fab fa-whatsapp"></i
+          ></a>
+          <button id="hamburger" class="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+      <!-- Search Bar -->
+      <div class="search-bar" id="searchBar">
+        <div class="search-inner">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search products..."
+            data-i18n-placeholder="search_placeholder"
+          />
+          <button onclick="runSearch()" class="search-btn">
+            <i class="fas fa-search"></i>
+          </button>
+          <button onclick="closeSearch()" class="search-close">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== PAGES WRAPPER ===== -->
+    <main id="main-content">
+      <!-- ========== HOME PAGE ========== -->
+      <section id="home" class="page active">
+        <!-- Hero -->
+        <div class="hero">
+          <div class="hero-bg"></div>
+          <div class="hero-overlay"></div>
+          <div class="hero-content animate-fade-up">
+            <p class="hero-subtitle" data-i18n="hero_subtitle">New Collection 2026</p>
+            <h1 class="hero-title">MONY<span>STORE</span></h1>
+            <p class="hero-desc" data-i18n="hero_desc">
+              Premium fashion for Men, Women & Kids — Order instantly via
+              WhatsApp
+            </p>
+            <div class="hero-btns">
+              <a
+                href="https://wa.me/201065291552?text=Hello%2C%20I%20want%20to%20browse%20your%20collection!"
+                target="_blank"
+                class="btn btn-primary"
+                data-i18n="shop_now_wa"
+              >
+                <i class="fab fa-whatsapp"></i> Shop Now on WhatsApp
+              </a>
+              <button onclick="showPage('categories')" class="btn btn-outline" data-i18n="explore_collections">
+                Explore Collections
+              </button>
+            </div>
+          </div>
+          <div class="hero-scroll-hint">
+            <span data-i18n="scroll">Scroll</span>
+            <div class="scroll-line"></div>
+          </div>
+        </div>
+
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+          <div class="stat-item scroll-animate fade-in-up">
+            <span class="stat-num">5K+</span
+            ><span class="stat-label" data-i18n="happy_customers">Happy Customers</span>
+          </div>
+          <div
+            class="stat-item scroll-animate fade-in-up"
+            style="animation-delay: 0.1s"
+          >
+            <span class="stat-num">500+</span
+            ><span class="stat-label" data-i18n="products_count">Products</span>
+          </div>
+          <div
+            class="stat-item scroll-animate fade-in-up"
+            style="animation-delay: 0.2s"
+          >
+            <span class="stat-num">3</span
+            ><span class="stat-label" data-i18n="collections_count">Collections</span>
+          </div>
+          <div
+            class="stat-item scroll-animate fade-in-up"
+            style="animation-delay: 0.3s"
+          >
+            <span class="stat-num">24/7</span
+            ><span class="stat-label" data-i18n="wa_support">WhatsApp Support</span>
+          </div>
+        </div>
+
+        <!-- Featured Categories -->
+        <section class="section">
+          <div class="container">
+            <div class="section-header scroll-animate fade-in-up">
+              <span class="section-tag" data-i18n="collections_tag">Collections</span>
+              <h2 class="section-title" data-i18n="shop_by_category">Shop By Category</h2>
+              <p class="section-sub" data-i18n="shop_by_category_sub">
+                Discover premium styles for every member of your family
+              </p>
+            </div>
+            <div class="categories-grid">
+              <div
+                class="category-card scroll-animate slide-in-left"
+                onclick="showCategory('men')"
+              >
+                <div class="cat-img cat-men"></div>
+                <div class="cat-overlay">
+                  <h3 data-i18n="men">Men</h3>
+                  <span class="cat-arrow"
+                    ><i class="fas fa-arrow-right"></i
+                  ></span>
+                </div>
+              </div>
+              <div
+                class="category-card scroll-animate fade-in-up"
+                onclick="showCategory('women')"
+              >
+                <div class="cat-img cat-women"></div>
+                <div class="cat-overlay">
+                  <h3 data-i18n="women">Women</h3>
+                  <span class="cat-arrow"
+                    ><i class="fas fa-arrow-right"></i
+                  ></span>
+                </div>
+              </div>
+              <div
+                class="category-card scroll-animate slide-in-right"
+                onclick="showCategory('kids')"
+              >
+                <div class="cat-img cat-kids"></div>
+                <div class="cat-overlay">
+                  <h3 data-i18n="kids">Kids</h3>
+                  <span class="cat-arrow"
+                    ><i class="fas fa-arrow-right"></i
+                  ></span>
+                </div>
+              </div>
+              <div
+                class="category-card scroll-animate fade-in-up"
+                onclick="showCategory('other')"
+              >
+                <div class="cat-img cat-other"></div>
+                <div class="cat-overlay">
+                  <h3 data-i18n="other">Other Things</h3>
+                  <span class="cat-arrow"
+                    ><i class="fas fa-arrow-right"></i
+                  ></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Trending Lookbook -->
+        <section class="section section-dark lookbook-section">
+          <div class="container">
+            <div class="section-header scroll-animate fade-in-up">
+              <span class="section-tag" data-i18n="inspiration_tag">Inspiration</span>
+              <h2 class="section-title" data-i18n="lookbook_title">Trending Lookbook</h2>
+              <p class="section-sub" data-i18n="lookbook_sub">
+                Discover the latest styling trends tailored for you
+              </p>
+            </div>
+            <div class="lookbook-grid">
+              <div class="lookbook-item lb-large scroll-animate slide-in-left">
+                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=80" alt="Women Fashion">
+                <div class="lb-overlay">
+                  <h3 data-i18n="womens_elegance">Women's Elegance</h3>
+                  <button class="btn btn-outline-light" onclick="showCategory('women')" data-i18n="shop_look">Shop Look</button>
+                </div>
+              </div>
+              <div class="lookbook-item scroll-animate fade-in-up" style="animation-delay: 0.1s;">
+                <img src="https://images.unsplash.com/photo-1516257984-b1b4d707412e?auto=format&fit=crop&w=600&q=80" alt="Men Fashion">
+                <div class="lb-overlay">
+                  <h3 data-i18n="urban_men">Urban Men</h3>
+                  <button class="btn btn-outline-light" onclick="showCategory('men')" data-i18n="shop_look">Shop Look</button>
+                </div>
+              </div>
+              <div class="lookbook-item scroll-animate slide-in-right" style="animation-delay: 0.2s;">
+                <img src="images/kids_fashion.png" alt="Kids Fashion">
+                <div class="lb-overlay">
+                  <h3 data-i18n="kids_playful">Kids Playful</h3>
+                  <button class="btn btn-outline-light" onclick="showCategory('kids')" data-i18n="shop_look">Shop Look</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+
+        <!-- Testimonials -->
+        <section class="section">
+          <div class="container">
+            <div class="section-header scroll-animate fade-in-up">
+              <span class="section-tag" data-i18n="reviews_tag">Reviews</span>
+              <h2 class="section-title" data-i18n="testimonials_title">What Our Customers Say</h2>
+            </div>
+            <div class="testimonials-grid">
+              <div class="testimonial-card scroll-animate slide-in-left">
+                <div class="stars">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i>
+                </div>
+                <p data-i18n="testi_1_text">
+                  "Absolutely love the quality! Ordered via WhatsApp and
+                  received my items in 2 days. Will definitely order again!"
+                </p>
+                <div class="testimonial-author">
+                  <div class="author-avatar av1">S</div>
+                  <div><strong data-i18n="testi_1_name">Sara M.</strong><span data-i18n="testi_1_loc">Cairo, Egypt</span></div>
+                </div>
+              </div>
+              <div class="testimonial-card scroll-animate fade-in-up">
+                <div class="stars">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i>
+                </div>
+                <p data-i18n="testi_2_text">
+                  "Best fashion store I've found online. The kids section is
+                  amazing — my children love everything I got them!"
+                </p>
+                <div class="testimonial-author">
+                  <div class="author-avatar av2">A</div>
+                  <div>
+                    <strong data-i18n="testi_2_name">Ahmed K.</strong><span data-i18n="testi_2_loc">Alexandria, Egypt</span>
+                  </div>
+                </div>
+              </div>
+              <div class="testimonial-card scroll-animate slide-in-right">
+                <div class="stars">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star-half-alt"></i>
+                </div>
+                <p data-i18n="testi_3_text">
+                  "Incredible prices for premium quality. The WhatsApp ordering
+                  is so convenient. Highly recommend Mony Store!"
+                </p>
+                <div class="testimonial-author">
+                  <div class="author-avatar av3">N</div>
+                  <div><strong data-i18n="testi_3_name">Nour H.</strong><span data-i18n="testi_3_loc">Giza, Egypt</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter scroll-animate fade-in-up">
+          <div class="container">
+            <div class="newsletter-inner">
+              <div class="newsletter-text">
+                <h2 data-i18n="newsletter_title">Stay in the Loop</h2>
+                <p data-i18n="newsletter_sub">Subscribe for exclusive deals and new arrivals</p>
+              </div>
+              <form class="newsletter-form" id="newsletterForm" onsubmit="handleNewsletter(event)">
+                <div class="input-group">
+                  <input
+                    type="email"
+                    id="newsletterEmail"
+                    placeholder="Enter your email..."
+                    data-i18n-placeholder="email_placeholder"
+                    required
+                  />
+                  <button type="submit" class="btn btn-primary" id="newsletterBtn">
+                    <span class="btn-text" data-i18n="subscribe">Subscribe</span>
+                    <span class="btn-loader"><i class="fas fa-spinner fa-spin"></i></span>
+                  </button>
+                </div>
+              </form>
+              <div class="newsletter-message" id="newsletterMessage"></div>
+              <div class="newsletter-admin">
+                <button class="view-subs-btn" onclick="toggleSubscribersList()" data-i18n="view_subscribers">
+                  View Subscribers
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+      <!-- /home -->
+
+      <!-- ========== CATEGORIES PAGE ========== -->
+      <section id="categories" class="page">
+        <div class="page-hero">
+          <h1 class="animate-fade-up" data-i18n="our_collections">Our Collections</h1>
+          <p class="animate-fade-up" data-i18n="choose_style">Choose your style</p>
+        </div>
+        <div class="container section">
+          <div class="categories-full-grid">
+            <div
+              class="cat-full-card scroll-animate slide-in-left"
+              onclick="showCategory('men')"
+            >
+              <div class="cat-full-img cat-men"></div>
+              <div class="cat-full-info">
+                <h3><i class="fas fa-male"></i> <span data-i18n="mens_collection">Men's Collection</span></h3>
+                <p data-i18n="mens_collection_desc">
+                  Casual, formal & sportswear for the modern man. From shirts to
+                  suits, we have it all.
+                </p>
+                <span class="btn btn-primary" data-i18n="browse_men">Browse Men</span>
+              </div>
+            </div>
+            <div
+              class="cat-full-card scroll-animate slide-in-right"
+              onclick="showCategory('women')"
+            >
+              <div class="cat-full-img cat-women"></div>
+              <div class="cat-full-info">
+                <h3><i class="fas fa-female"></i> <span data-i18n="womens_collection">Women's Collection</span></h3>
+                <p data-i18n="womens_collection_desc">
+                  Elegant dresses, stylish tops, and everything in between for
+                  the modern woman.
+                </p>
+                <span class="btn btn-primary" data-i18n="browse_women">Browse Women</span>
+              </div>
+            </div>
+            <div
+              class="cat-full-card scroll-animate fade-in-up"
+              onclick="showCategory('kids')"
+            >
+              <div class="cat-full-img cat-kids"></div>
+              <div class="cat-full-info">
+                <h3><i class="fas fa-child"></i> <span data-i18n="kids_collection">Kids' Collection</span></h3>
+                <p data-i18n="kids_collection_desc">
+                  Comfortable, playful and durable clothing for your little ones
+                  aged 2–14.
+                </p>
+                <span class="btn btn-primary" data-i18n="browse_kids">Browse Kids</span>
+              </div>
+            </div>
+            <div
+              class="cat-full-card scroll-animate slide-in-right"
+              onclick="showCategory('other')"
+            >
+              <div class="cat-full-img cat-other"></div>
+              <div class="cat-full-info">
+                <h3><i class="fas fa-home"></i> <span data-i18n="other_collection">Home Accessories</span></h3>
+                <p data-i18n="other_collection_desc">
+                  Beautiful bedding and home essentials to elevate your living space.
+                </p>
+                <span class="btn btn-primary" data-i18n="browse_other">Browse Other</span>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /categories -->
+
+      <!-- ========== PRODUCTS PAGE ========== -->
+      <section id="products" class="page">
+        <div class="page-hero">
+          <h1 id="productsPageTitle" class="animate-fade-up" data-i18n="all_products">All Products</h1>
+          <p class="animate-fade-up" data-i18n="find_style">Find your perfect style</p>
+        </div>
+        <div class="container section">
+          <!-- Filters -->
+          <div class="filters-bar scroll-animate fade-in-up">
+            <div class="filter-tabs" id="filterTabs">
+              <button
+                class="filter-tab active"
+                data-filter="all"
+                onclick="filterProducts('all')"
+                data-i18n="all"
+              >
+                All
+              </button>
+              <button
+                class="filter-tab"
+                data-filter="men"
+                onclick="filterProducts('men')"
+                data-i18n="men"
+              >
+                Men
+              </button>
+              <button
+                class="filter-tab"
+                data-filter="women"
+                onclick="filterProducts('women')"
+                data-i18n="women"
+              >
+                Women
+              </button>
+              <button
+                class="filter-tab"
+                data-filter="kids"
+                onclick="filterProducts('kids')"
+                data-i18n="kids"
+              >
+                Kids
+              </button>
+              <button
+                class="filter-tab"
+                data-filter="other"
+                onclick="filterProducts('other')"
+                data-i18n="other"
+              >
+                Other
+              </button>
+            </div>
+            <div class="sort-select">
+              <select id="sortSelect" onchange="sortProducts()">
+                <option value="default" data-i18n="sort_by">Sort By</option>
+                <option value="price-asc" data-i18n="price_asc">Price: Low to High</option>
+                <option value="price-desc" data-i18n="price_desc">Price: High to Low</option>
+                <option value="name" data-i18n="name_az">Name A–Z</option>
+              </select>
+            </div>
+          </div>
+          <div class="products-grid" id="productsGrid"></div>
+        </div>
+      </section>
+      <!-- /products -->
+
+      <!-- ========== PRODUCT DETAIL PAGE ========== -->
+      <section id="product-detail" class="page">
+        <div class="container section">
+          <button class="back-btn" onclick="goBack()" data-i18n="back">
+            <i class="fas fa-arrow-left"></i> Back
+          </button>
+          <div class="product-detail-grid" id="productDetailContent"></div>
+        </div>
+      </section>
+      <!-- /product-detail -->
+
+      <!-- ========== ABOUT PAGE ========== -->
+      <section id="about" class="page">
+        <div class="page-hero">
+          <h1 class="animate-fade-up" data-i18n="about_us">About Us</h1>
+          <p class="animate-fade-up" data-i18n="about_sub">Our story, vision & values</p>
+        </div>
+        <div class="container section">
+          <!-- Brand Story -->
+          <div class="about-story scroll-animate slide-in-left">
+            <div class="about-text">
+              <span class="section-tag" data-i18n="our_story_tag">Our Story</span>
+              <h2 data-i18n="born_passion">Born from Passion for Fashion</h2>
+              <p data-i18n="about_p1">
+                Mony Store was founded with a simple yet powerful mission: to
+                make premium fashion accessible to everyone in Egypt and beyond.
+                We believe that style shouldn't compromise quality, and quality
+                shouldn't break the bank.
+              </p>
+              <p data-i18n="about_p2">
+                Starting as a small local boutique, we've grown into a trusted
+                online fashion destination — serving thousands of happy
+                customers across Egypt through the convenience of WhatsApp
+                ordering.
+              </p>
+            </div>
+            <div class="about-visual">
+              <div class="about-img-grid">
+                <div
+                  class="about-img-box cat-women"
+                  style="border-radius: 16px; min-height: 280px"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vision -->
+          <div class="about-vision scroll-animate fade-in-up">
+            <div class="vision-card">
+              <i class="fas fa-eye"></i>
+              <h3 data-i18n="our_vision">Our Vision</h3>
+              <p data-i18n="vision_desc">
+                To become Egypt's most loved fashion brand — one where every
+                customer feels seen, styled, and confident.
+              </p>
+            </div>
+            <div class="vision-card">
+              <i class="fas fa-heart"></i>
+              <h3 data-i18n="our_mission">Our Mission</h3>
+              <p data-i18n="mission_desc">
+                Delivering premium quality clothing with exceptional service,
+                making fashion simple and accessible through WhatsApp.
+              </p>
+            </div>
+            <div class="vision-card">
+              <i class="fas fa-star"></i>
+              <h3 data-i18n="our_values">Our Values</h3>
+              <p data-i18n="values_desc">
+                Quality, integrity, style and customer satisfaction. We stand
+                behind every product we sell.
+              </p>
+            </div>
+          </div>
+
+          <!-- Why Choose Us -->
+          <div
+            class="section-header scroll-animate fade-in-up"
+            style="margin-top: 4rem"
+          >
+            <span class="section-tag">Why Us</span>
+            <h2 class="section-title">Why Choose Mony Store?</h2>
+          </div>
+          <div class="why-grid">
+            <div class="why-card scroll-animate slide-in-left">
+              <i class="fas fa-gem"></i>
+              <h4 data-i18n="premium_quality">Premium Quality</h4>
+              <p data-i18n="premium_quality_desc">Every item is carefully selected for quality and style</p>
+            </div>
+            <div class="why-card scroll-animate fade-in-up">
+              <i class="fab fa-whatsapp"></i>
+              <h4 data-i18n="easy_wa_orders">Easy WhatsApp Orders</h4>
+              <p data-i18n="easy_wa_orders_desc">Order in seconds — no complicated checkout process</p>
+            </div>
+            <div class="why-card scroll-animate slide-in-right">
+              <i class="fas fa-truck"></i>
+              <h4 data-i18n="fast_delivery">Fast Delivery</h4>
+              <p data-i18n="fast_delivery_desc">Quick and reliable delivery across Egypt</p>
+            </div>
+            <div class="why-card scroll-animate slide-in-left">
+              <i class="fas fa-star"></i>
+              <h4 data-i18n="exclusive_collections">Exclusive Collections</h4>
+              <p data-i18n="exclusive_collections_desc">Curated styles and unique pieces you won't find anywhere else</p>
+            </div>
+            <div class="why-card scroll-animate fade-in-up">
+              <i class="fas fa-tags"></i>
+              <h4 data-i18n="best_prices">Best Prices</h4>
+              <p data-i18n="best_prices_desc">Premium fashion at prices that won't break the bank</p>
+            </div>
+            <div class="why-card scroll-animate slide-in-right">
+              <i class="fas fa-headset"></i>
+              <h4 data-i18n="wa_support_247">24/7 Support</h4>
+              <p data-i18n="wa_support_247_desc">We're always here to help via WhatsApp</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /about -->
+
+      <!-- ========== CONTACT PAGE ========== -->
+      <section id="contact" class="page">
+        <div class="page-hero">
+          <h1 class="animate-fade-up">Contact Us</h1>
+          <p class="animate-fade-up">We'd love to hear from you</p>
+        </div>
+        <div class="container section">
+          <div class="contact-grid">
+            <!-- Info -->
+            <div class="contact-info scroll-animate slide-in-left">
+              <h3 data-i18n="get_in_touch">Get In Touch</h3>
+              <p data-i18n="contact_desc">
+                Have questions? We're just a WhatsApp message away. Reach out
+                and we'll get back to you instantly.
+              </p>
+              <div class="contact-items">
+                <div class="contact-item">
+                  <a href="https://wa.me/201065291552" target="_blank" class="contact-icon">
+                    <i class="fab fa-whatsapp"></i>
+                  </a>
+                  <div>
+                    <strong data-i18n="whatsapp">WhatsApp</strong>
+                    <a href="https://wa.me/201065291552" target="_blank"
+                      >+20 106 529 1552</a
+                    >
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <a href="https://www.facebook.com/profile.php?id=61586514075795" target="_blank" class="contact-icon">
+                    <i class="fab fa-facebook"></i>
+                  </a>
+                  <div>
+                    <strong data-i18n="facebook">Facebook</strong>
+                    <a
+                      href="https://www.facebook.com/profile.php?id=61586514075795"
+                      target="_blank"
+                      >Mony Store</a
+                    >
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=jx042mk" target="_blank" class="contact-icon">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                  <div>
+                    <strong data-i18n="instagram">Instagram</strong>
+                    <a
+                      href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=jx042mk"
+                      target="_blank"
+                      >@monystore</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <a
+                href="https://wa.me/201065291552?text=Hello%2C%20I%20have%20a%20question!"
+                target="_blank"
+                class="btn btn-primary wa-contact-btn"
+                data-i18n="chat_wa_now"
+              >
+                <i class="fab fa-whatsapp"></i> Chat on WhatsApp Now
+              </a>
+            </div>
+
+
+          </div>
+        </div>
+      </section>
+      <!-- /contact -->
+    </main>
+    <!-- /main-content -->
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="footer-grid">
+            <div class="footer-brand">
+              <div class="logo">MONY<span>STORE</span></div>
+              <p data-i18n="footer_desc">
+                Premium fashion for Men, Women & Kids. Order via WhatsApp for
+                the best experience.
+              </p>
+              <div class="social-links">
+                <a
+                  href="https://www.facebook.com/profile.php?id=61586514075795"
+                  target="_blank"
+                  aria-label="Facebook"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a
+                  href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=jx042mk"
+                  target="_blank"
+                  aria-label="Instagram"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a
+                  href="https://wa.me/201065291552"
+                  target="_blank"
+                  aria-label="WhatsApp"
+                  ><i class="fab fa-whatsapp"></i
+                ></a>
+              </div>
+            </div>
+            <div class="footer-links">
+              <h4 data-i18n="quick_links">Quick Links</h4>
+              <ul>
+                <li><a href="#home" onclick="showPage('home')" data-i18n="nav_home">Home</a></li>
+                <li>
+                  <a href="#categories" onclick="showPage('categories')" data-i18n="nav_categories"
+                    >Categories</a
+                  >
+                </li>
+                <li>
+                  <a href="#products" onclick="showPage('products')" data-i18n="nav_products"
+                    >Products</a
+                  >
+                </li>
+                <li><a href="#about" onclick="showPage('about')" data-i18n="nav_about">About</a></li>
+                <li>
+                  <a href="#contact" onclick="showPage('contact')" data-i18n="nav_contact">Contact</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-links">
+              <h4 data-i18n="collections">Collections</h4>
+              <ul>
+                <li>
+                  <a href="#" onclick="showCategory('men')" data-i18n="mens_fashion">Men's Fashion</a>
+                </li>
+                <li>
+                  <a href="#" onclick="showCategory('women')" data-i18n="womens_fashion"
+                    >Women's Fashion</a
+                  >
+                </li>
+                <li>
+                  <a href="#" onclick="showCategory('kids')" data-i18n="kids_fashion">Kids' Fashion</a>
+                </li>
+                <li>
+                  <a href="#" onclick="showPage('products')" data-i18n="best_sellers">Best Sellers</a>
+                </li>
+                <li>
+                  <a href="#" onclick="showPage('products')" data-i18n="new_arrivals">New Arrivals</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-contact">
+              <h4 data-i18n="contact_us">Contact Us</h4>
+              <div class="footer-contact-item">
+                <i class="fab fa-whatsapp"></i>
+                <a href="https://wa.me/201065291552" target="_blank"
+                  >+20 106 529 1552</a
+                >
+              </div>
+              <div class="footer-contact-item">
+                <i class="fab fa-facebook"></i>
+                <a
+                  href="https://www.facebook.com/profile.php?id=61586514075795"
+                  target="_blank"
+                  >Facebook Page</a
+                >
+              </div>
+              <div class="footer-contact-item">
+                <i class="fab fa-instagram"></i>
+                <a
+                  href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=jx042mk"
+                  target="_blank"
+                  >Instagram</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <p>
+            &copy; 2026 Mony Store. <span data-i18n="rights_reserved">All Rights Reserved.</span> | <span data-i18n="designed_with">Designed with</span>
+            <i class="fas fa-heart" style="color: var(--pink)"></i>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Subscribers Modal -->
+    <div id="subscribersModal" class="modal-overlay">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 data-i18n="subscribers_title">Our Subscribers</h2>
+          <button class="modal-close" onclick="toggleSubscribersList()">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="subs-stats">
+            <span class="subs-label" data-i18n="total">Total:</span>
+            <span id="subscribersCount" class="subs-count">0</span>
+          </div>
+          <div id="subscribersList" class="subs-list">
+            <!-- List will be populated by JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="adminModal" class="modal-overlay">
+      <div class="modal-content" style="max-width: 400px;">
+        <div class="modal-header">
+          <h2 data-i18n="admin_login_title">Admin Login</h2>
+          <button class="modal-close" onclick="toggleAdminModal(false)">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="admin-input-group">
+            <input type="password" id="adminPass" placeholder="Enter Password" data-i18n-placeholder="admin_password_placeholder">
+            <button type="button" id="togglePass" class="toggle-pass-btn">
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+          <button class="btn btn-primary" style="width: 100%; margin-top: 20px;" onclick="checkAdminPass()" data-i18n="admin_login_btn">
+            Login
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
