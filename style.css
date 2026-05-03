@@ -2720,8 +2720,19 @@ body.dark-mode .color-btn {
 }
 
 @media (max-width: 480px) {
-  .container {
-    padding: 0 16px;
+  .container, .nav-container {
+    padding: 0 12px;
+  }
+  .nav-actions {
+    gap: 8px;
+  }
+  .logo {
+    font-size: 1.4rem;
+  }
+  .icon-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
   }
   .section {
     padding: 40px 0;
@@ -2793,8 +2804,19 @@ body.dark-mode .color-btn {
   .section-title {
     font-size: 1.8rem;
   }
-  .container {
-    padding: 0 12px;
+  .container, .nav-container {
+    padding: 0 8px;
+  }
+  .nav-actions {
+    gap: 5px;
+  }
+  .logo {
+    font-size: 1.2rem;
+  }
+  .icon-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 1rem;
   }
   .btn {
     font-size: 0.9rem;
