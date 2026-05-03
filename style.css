@@ -2723,6 +2723,14 @@ body.dark-mode .color-btn {
   .container, .nav-container {
     padding: 0 10px;
   }
+  .hamburger {
+    display: flex;
+    padding: 8px;
+  }
+  .hamburger span {
+    width: 26px;
+    height: 2.5px;
+  }
   .nav-actions {
     gap: 6px;
   }
@@ -2806,6 +2814,14 @@ body.dark-mode .color-btn {
   }
   .container, .nav-container {
     padding: 0 5px;
+  }
+  .hamburger {
+    display: flex;
+    padding: 5px;
+  }
+  .hamburger span {
+    width: 22px;
+    height: 2px;
   }
   .nav-actions {
     gap: 3px;
