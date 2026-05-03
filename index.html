@@ -356,11 +356,6 @@
                 </div>
               </form>
               <div class="newsletter-message" id="newsletterMessage"></div>
-              <div class="newsletter-admin">
-                <button class="view-subs-btn" onclick="toggleSubscribersList()" data-i18n="view_subscribers">
-                  View Subscribers
-                </button>
-              </div>
             </div>
           </div>
         </section>
@@ -806,49 +801,7 @@
     <!-- Toast Notification -->
     <div id="toast" class="toast"></div>
 
-    <!-- Subscribers Modal -->
-    <div id="subscribersModal" class="modal-overlay">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 data-i18n="subscribers_title">Our Subscribers</h2>
-          <button class="modal-close" onclick="toggleSubscribersList()">
-            <i class="fas fa-times"></i>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="subs-stats">
-            <span class="subs-label" data-i18n="total">Total:</span>
-            <span id="subscribersCount" class="subs-count">0</span>
-          </div>
-          <div id="subscribersList" class="subs-list">
-            <!-- List will be populated by JS -->
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <!-- Admin Modal -->
-    <div id="adminModal" class="modal-overlay">
-      <div class="modal-content" style="max-width: 400px;">
-        <div class="modal-header">
-          <h2 data-i18n="admin_login_title">Admin Login</h2>
-          <button class="modal-close" onclick="toggleAdminModal(false)">
-            <i class="fas fa-times"></i>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="admin-input-group">
-            <input type="password" id="adminPass" placeholder="Enter Password" data-i18n-placeholder="admin_password_placeholder">
-            <button type="button" id="togglePass" class="toggle-pass-btn">
-              <i class="fas fa-eye"></i>
-            </button>
-          </div>
-          <button class="btn btn-primary" style="width: 100%; margin-top: 20px;" onclick="checkAdminPass()" data-i18n="admin_login_btn">
-            Login
-          </button>
-        </div>
-      </div>
-    </div>
 
     <!-- Shopping Cart Modal / Sidebar -->
     <div id="cartModal" class="cart-sidebar-overlay">

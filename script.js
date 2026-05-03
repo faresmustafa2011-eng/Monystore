@@ -322,7 +322,6 @@ const translations = {
     newsletter_sub: "Subscribe for exclusive deals and new arrivals",
     email_placeholder: "Enter your email...",
     subscribe: "Subscribe",
-    view_subscribers: "View Subscribers",
     quick_links: "Quick Links",
     collections: "Collections",
     contact_us: "Contact Us",
@@ -409,11 +408,7 @@ const translations = {
       "This email address could not be verified. Please ensure it's correct and try again.",
     newsletter_success: "Identity verified. Subscription confirmed.",
     egp: "EGP",
-    subscribers_title: "Our Subscribers",
-    no_subscribers: "No subscribers yet.",
     total: "Total",
-    clear_all: "Delete All",
-    delete: "Delete",
     quick_view: "Quick View",
     best_seller: "Best Seller",
     search_title: 'Search Results for "{query}"',
@@ -440,14 +435,6 @@ const translations = {
       "Incredible prices for premium quality. The WhatsApp ordering is so convenient. Highly recommend Mony Store!",
     testi_3_name: "Nour H.",
     testi_3_loc: "Giza, Egypt",
-    admin_login_title: "Admin Login",
-    admin_password_placeholder: "Enter Password",
-    admin_login_btn: "Login",
-    admin_access_granted: "Admin access granted.",
-    admin_access_denied: "You are not the admin!",
-    admin_incorrect_pass: "Incorrect password. {attempts} attempts left.",
-    subscriber_deleted: "Subscriber deleted.",
-    all_subscribers_deleted: "All subscribers have been deleted.",
     confirm_delete_all: "Are you sure you want to delete all subscribers?",
     cart_title: "Shopping Cart",
     empty_cart: "Your cart is empty.",
@@ -491,7 +478,6 @@ const translations = {
     newsletter_sub: "اشترك للحصول على عروض حصرية ووصل حديثاً",
     email_placeholder: "أدخل بريدك الإلكتروني...",
     subscribe: "اشتراك",
-    view_subscribers: "عرض المشتركين",
     quick_links: "روابط سريعة",
     collections: "المجموعات",
     contact_us: "اتصل بنا",
@@ -575,11 +561,7 @@ const translations = {
       "تعذر التحقق من هذا البريد. يرجى التأكد من صحته والمحاولة مرة أخرى.",
     newsletter_success: "تم التحقق من الهوية. تأكيد الاشتراك بنجاح.",
     egp: "جنيه مصري",
-    subscribers_title: "المشتركون لدينا",
-    no_subscribers: "لا يوجد مشتركون بعد.",
     total: "الإجمالي",
-    clear_all: "حذف الكل",
-    delete: "حذف",
     quick_view: "عرض سريع",
     best_seller: "الأكثر مبيعاً",
     search_title: 'نتائج البحث عن "{query}"',
@@ -606,14 +588,6 @@ const translations = {
       "أسعار مذهلة لجودة ممتازة. الطلب عبر واتساب مريح جداً. أنصح الجميع بـ موني ستور!",
     testi_3_name: "نور هـ.",
     testi_3_loc: "الجيزة، مصر",
-    admin_login_title: "دخول المسؤول",
-    admin_password_placeholder: "أدخل كلمة المرور",
-    admin_login_btn: "دخول",
-    admin_access_granted: "تم منح صلاحية المسؤول.",
-    admin_access_denied: "أنت لست المسؤول!",
-    admin_incorrect_pass: "كلمة المرور غير صحيحة. تبقى {attempts} محاولات.",
-    subscriber_deleted: "تم حذف المشترك.",
-    all_subscribers_deleted: "تم حذف جميع المشتركين.",
     confirm_delete_all: "هل أنت متأكد من حذف جميع المشتركين؟",
     login: "تسجيل الدخول",
     signup: "إنشاء حساب",
@@ -682,81 +656,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const savedLang = localStorage.getItem("monyLang") || "en";
   setLanguage(savedLang);
 
-  // Admin Secret Check
-  if (sessionStorage.getItem("monyAdmin") === "true") {
-    document.querySelector(".newsletter-admin").style.display = "flex";
-  }
+
 
   // Initialize Cart Badge
   updateCartBadge();
 });
 
-/* ===== ADMIN SECRET LOGIC ===== */
-let logoClicks = 0;
-document.querySelector(".logo").addEventListener("click", (e) => {
-  logoClicks++;
-  if (logoClicks === 3) {
-    toggleAdminModal(true);
-    logoClicks = 0;
-  }
 
-  setTimeout(() => {
-    logoClicks = 0;
-  }, 2000);
-});
-
-function toggleAdminModal(show) {
-  const modal = document.getElementById("adminModal");
-  if (show) {
-    modal.classList.add("active");
-    document.getElementById("adminPass").value = "";
-    document.getElementById("adminPass").focus();
-  } else {
-    modal.classList.remove("active");
-  }
-}
-
-let adminAttempts = 0;
-
-function checkAdminPass() {
-  const lang = document.documentElement.lang || "en";
-  const passInput = document.getElementById("adminPass");
-  if (passInput.value === "mony123") {
-    sessionStorage.setItem("monyAdmin", "true");
-    document.querySelector(".newsletter-admin").style.display = "flex";
-    showToast(translations[lang].admin_access_granted);
-    toggleAdminModal(false);
-    adminAttempts = 0;
-  } else {
-    adminAttempts++;
-    if (adminAttempts >= 3) {
-      showToast(translations[lang].admin_access_denied);
-      toggleAdminModal(false);
-      adminAttempts = 0; // Reset for next time they try to open it
-    } else {
-      showToast(
-        translations[lang].admin_incorrect_pass.replace(
-          "{attempts}",
-          3 - adminAttempts,
-        ),
-      );
-      passInput.value = "";
-      passInput.focus();
-    }
-  }
-}
-
-document.getElementById("togglePass").addEventListener("click", function () {
-  const passInput = document.getElementById("adminPass");
-  const icon = this.querySelector("i");
-  if (passInput.type === "password") {
-    passInput.type = "text";
-    icon.classList.replace("fa-eye", "fa-eye-slash");
-  } else {
-    passInput.type = "password";
-    icon.classList.replace("fa-eye-slash", "fa-eye");
-  }
-});
 
 // Theme Toggle
 themeToggle.addEventListener("click", () => {
@@ -1334,73 +1240,7 @@ async function handleNewsletter(e) {
   }
 }
 
-/* ===== SUBSCRIBERS LIST ===== */
-function toggleSubscribersList() {
-  const modal = document.getElementById("subscribersModal");
-  if (modal.classList.contains("active")) {
-    modal.classList.remove("active");
-  } else {
-    renderSubscribersList();
-    modal.classList.add("active");
-  }
-}
 
-function renderSubscribersList() {
-  const listContainer = document.getElementById("subscribersList");
-  const countContainer = document.getElementById("subscribersCount");
-  const lang = document.documentElement.lang || "en";
-
-  const subscribers = JSON.parse(
-    localStorage.getItem("monySubscribers") || "[]",
-  );
-
-  countContainer.innerText = subscribers.length;
-
-  if (subscribers.length === 0) {
-    listContainer.innerHTML = `<p class="no-subs">${translations[lang].no_subscribers}</p>`;
-    return;
-  }
-
-  listContainer.innerHTML = `
-    <ul class="subs-ol">
-      ${subscribers
-        .map(
-          (email, index) => `
-        <li>
-          <span class="subs-email">${email}</span>
-          <button class="item-delete-btn" onclick="deleteSubscriber(${index})" title="${translations[lang].delete}">
-            <i class="fas fa-trash-alt"></i>
-          </button>
-        </li>
-      `,
-        )
-        .join("")}
-    </ul>
-    <div class="subs-actions">
-      <button class="clear-subs-btn" onclick="clearSubscribers()">
-        <i class="fas fa-dumpster"></i> ${translations[lang].clear_all}
-      </button>
-    </div>
-  `;
-}
-
-function deleteSubscriber(index) {
-  let subscribers = JSON.parse(localStorage.getItem("monySubscribers") || "[]");
-  subscribers.splice(index, 1);
-  localStorage.setItem("monySubscribers", JSON.stringify(subscribers));
-  renderSubscribersList();
-  const lang = document.documentElement.lang || "en";
-  showToast(translations[lang].subscriber_deleted);
-}
-
-function clearSubscribers() {
-  const lang = document.documentElement.lang || "en";
-  if (confirm(translations[lang].confirm_delete_all)) {
-    localStorage.removeItem("monySubscribers");
-    renderSubscribersList();
-    showToast(translations[lang].all_subscribers_deleted);
-  }
-}
 
 function handleContact(e) {
   e.preventDefault();
