@@ -2720,17 +2720,23 @@ body.dark-mode .color-btn {
 }
 
 @media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
   .section {
     padding: 40px 0;
   }
   .page-hero {
-    padding: 120px 20px 40px;
+    padding: 100px 16px 30px;
   }
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
   .hero-desc {
-    font-size: 1.1rem;
+    font-size: 1rem;
+  }
+  .section-title {
+    font-size: 2rem;
   }
   .categories-grid {
     grid-template-columns: 1fr;
@@ -2764,13 +2770,34 @@ body.dark-mode .color-btn {
   .whatsapp-float {
     bottom: 20px;
     right: 20px;
-    width: 55px;
-    height: 55px;
-    font-size: 1.8rem;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
   }
   .scroll-top-btn {
-    right: 25px;
-    bottom: 90px;
+    right: 20px;
+    bottom: 80px;
+  }
+  .btn {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Specific iPhone Breakpoints (390px for iPhone 12/13/14/15/16 6.1" and smaller) */
+@media (max-width: 395px) {
+  .hero-title {
+    font-size: 1.9rem;
+  }
+  .section-title {
+    font-size: 1.8rem;
+  }
+  .container {
+    padding: 0 12px;
+  }
+  .btn {
+    font-size: 0.9rem;
   }
 }
 
