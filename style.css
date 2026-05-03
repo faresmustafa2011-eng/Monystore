@@ -24,6 +24,42 @@
   --pink: #6366f1; /* Replaced with Indigo for consistency */
 }
 
+/* ===== CUSTOM SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 10px;
+  border: 2px solid var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-color) var(--bg-color);
+}
+
+/* ===== SELECTION ===== */
+::selection {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+::-moz-selection {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
 body.dark-mode {
   /* Premium Modern Palette - Dark Mode */
   --bg-color: #020617; /* Very Dark Slate */
@@ -52,6 +88,7 @@ body.dark-mode {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Offset for fixed header */
   font-size: 16px;
   overflow-x: hidden;
   width: 100%;
