@@ -449,6 +449,13 @@ const translations = {
     subscriber_deleted: "Subscriber deleted.",
     all_subscribers_deleted: "All subscribers have been deleted.",
     confirm_delete_all: "Are you sure you want to delete all subscribers?",
+    cart_title: "Shopping Cart",
+    empty_cart: "Your cart is empty.",
+    add_to_cart: "Add to Cart",
+    checkout: "Checkout on WhatsApp",
+    quantity: "Qty",
+    added_to_cart: "Added to cart successfully!",
+    cart_checkout_msg: "Hello Mony Store! 👋\n\nI want to order the following items from my cart:\n",
   },
   ar: {
     nav_home: "الرئيسية",
@@ -608,6 +615,13 @@ const translations = {
     subscriber_deleted: "تم حذف المشترك.",
     all_subscribers_deleted: "تم حذف جميع المشتركين.",
     confirm_delete_all: "هل أنت متأكد من حذف جميع المشتركين؟",
+    cart_title: "عربة التسوق",
+    empty_cart: "عربة التسوق فارغة.",
+    add_to_cart: "أضف إلى العربة",
+    checkout: "إتمام الطلب عبر واتساب",
+    quantity: "الكمية",
+    added_to_cart: "تمت الإضافة إلى العربة بنجاح!",
+    cart_checkout_msg: "أهلاً موني ستور! 👋\n\nأريد طلب العناصر التالية من عربة التسوق:\n",
   },
 };
 
@@ -661,6 +675,9 @@ document.addEventListener("DOMContentLoaded", () => {
   if (sessionStorage.getItem("monyAdmin") === "true") {
     document.querySelector(".newsletter-admin").style.display = "flex";
   }
+
+  // Initialize Cart Badge
+  updateCartBadge();
 });
 
 /* ===== ADMIN SECRET LOGIC ===== */
@@ -1146,7 +1163,10 @@ function viewProduct(id) {
         </div>
       </div>
       
-      <div class="pd-actions">
+      <div class="pd-actions" style="display:flex; gap:10px; flex-wrap: wrap;">
+        <button class="btn btn-outline" style="color:var(--text-color); border-color:var(--primary-color)" onclick="addToCartFromDetail()">
+          <i class="fas fa-shopping-cart"></i> ${translations[lang].add_to_cart}
+        </button>
         <button class="btn btn-primary" onclick="orderWhatsApp('${product.title.replace(/'/g, "\\'")}')">
           ${translations[lang].order_wa}
         </button>
@@ -1433,4 +1453,144 @@ function initScrollAnimations() {
       observer.observe(el);
     }
   });
+}
+
+/* ===== CART UI LOGIC ===== */
+const cartToggle = document.getElementById("cartToggle");
+const cartModal = document.getElementById("cartModal");
+const cartBadge = document.getElementById("cartBadge");
+
+if (cartToggle) {
+  cartToggle.addEventListener("click", toggleCart);
+}
+
+function toggleCart() {
+  if (cartModal.classList.contains("active")) {
+    cartModal.classList.remove("active");
+    document.body.style.overflow = ""; // Enable scroll
+  } else {
+    renderCart();
+    cartModal.classList.add("active");
+    document.body.style.overflow = "hidden"; // Disable scroll
+  }
+}
+
+// Close cart when clicking outside the sidebar
+if (cartModal) {
+  cartModal.addEventListener("click", (e) => {
+    if (e.target === cartModal) toggleCart();
+  });
+}
+
+function renderCart() {
+  const listContainer = document.getElementById("cartItemsList");
+  const totalContainer = document.getElementById("cartTotalPrice");
+  const lang = document.documentElement.lang || "en";
+  const items = cart.getItems();
+
+  updateCartBadge();
+
+  if (items.length === 0) {
+    listContainer.innerHTML = `<div class="empty-cart-msg">
+      <i class="fas fa-shopping-basket"></i>
+      <p>${translations[lang].empty_cart}</p>
+    </div>`;
+    totalContainer.innerText = `0 ${translations[lang].egp}`;
+    return;
+  }
+
+  listContainer.innerHTML = items
+    .map(
+      (item, index) => `
+    <div class="cart-item">
+      <img src="${item.image}" alt="${item.title}" class="cart-item-img">
+      <div class="cart-item-info">
+        <h4 class="cart-item-title">${
+          lang === "ar" && item.title_ar ? item.title_ar : item.title
+        }</h4>
+        <div class="cart-item-opts">
+          <span>${translations[lang].size}: ${item.size}</span>
+          <span class="color-dot-sm" style="background-color:${
+            item.color
+          }; border: 1px solid var(--border-color);"></span>
+        </div>
+        <div class="cart-item-price">${item.price} ${translations[lang].egp}</div>
+        <div class="cart-item-qty-ctrl">
+          <div class="qty-btns">
+            <button onclick="updateCartItemQty(${index}, -1)"><i class="fas fa-minus"></i></button>
+            <span>${item.quantity}</span>
+            <button onclick="updateCartItemQty(${index}, 1)"><i class="fas fa-plus"></i></button>
+          </div>
+          <button class="cart-item-delete" onclick="removeCartItem(${index})" title="${
+            translations[lang].delete
+          }">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  `,
+    )
+    .join("");
+
+  totalContainer.innerText = `${cart.getTotalPrice()} ${translations[lang].egp}`;
+}
+
+function updateCartItemQty(index, change) {
+  const item = cart.getItems()[index];
+  cart.updateQuantity(index, item.quantity + change);
+  renderCart();
+}
+
+function removeCartItem(index) {
+  cart.removeItem(index);
+  renderCart();
+}
+
+function updateCartBadge() {
+  if (cartBadge) {
+    const total = cart.getTotalItems();
+    cartBadge.innerText = total;
+    if (total > 0) {
+      cartBadge.classList.add("visible");
+    } else {
+      cartBadge.classList.remove("visible");
+    }
+  }
+}
+
+function addToCartFromDetail() {
+  if (!currentProduct || !selectedSize || !selectedColor) return;
+  cart.addItem(currentProduct, selectedSize, selectedColor, 1);
+  updateCartBadge();
+  const lang = document.documentElement.lang || "en";
+  showToast(translations[lang].added_to_cart);
+  
+  // Optionally open cart after adding
+  setTimeout(toggleCart, 500);
+}
+
+function checkoutCart() {
+  const items = cart.getItems();
+  if (items.length === 0) return;
+
+  const lang = document.documentElement.lang || "en";
+  let msg = translations[lang].cart_checkout_msg;
+
+  items.forEach((item, index) => {
+    msg += `\n${index + 1}. ${
+      lang === "ar" && item.title_ar ? item.title_ar : item.title
+    }\n   📏 ${translations[lang].size}: ${item.size}\n   🎨 Color: ${
+      item.color
+    }\n   🔢 Qty: ${item.quantity}\n   💰 Price: ${item.price} ${
+      translations[lang].egp
+    }\n`;
+  });
+
+  msg += `\n━━━━━━━━━━━━━━━\n💰 ${translations[lang].total}: ${cart.getTotalPrice()} ${
+    translations[lang].egp
+  }`;
+
+  const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+  window.open(url, "_blank");
 }
