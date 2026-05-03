@@ -2725,30 +2725,34 @@ body.dark-mode .color-btn {
 }
 
 @media (max-width: 480px) {
+  html {
+    font-size: 17px;
+  }
   .container, .nav-container {
-    padding: 0 12px;
+    padding: 0 15px;
   }
   .hamburger {
     display: flex;
     padding: 10px;
   }
   .hamburger span {
-    width: 28px;
+    width: 30px;
     height: 3px;
   }
   .nav-actions {
-    gap: 10px;
+    gap: 12px;
   }
   .logo {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
   .icon-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 1.1rem;
+    width: 42px;
+    height: 42px;
+    font-size: 1.2rem;
   }
   .section {
-    padding: 40px 0;
+    padding: 50px 0;
+    overflow: hidden;
   }
   .page-hero {
     padding: 100px 16px 30px;
@@ -2811,37 +2815,40 @@ body.dark-mode .color-btn {
 
 /* Specific iPhone Breakpoints (390px for iPhone 12/13/14/15/16 6.1" and smaller) */
 @media (max-width: 395px) {
+  html {
+    font-size: 16px;
+  }
   .hero-title {
-    font-size: 1.9rem;
+    font-size: 2.1rem;
   }
   .section-title {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
   }
   .container, .nav-container {
-    padding: 0 8px;
+    padding: 0 10px;
   }
   .hamburger {
     display: flex;
     padding: 8px;
   }
   .hamburger span {
-    width: 25px;
-    height: 2.5px;
+    width: 28px;
+    height: 2.8px;
   }
   .nav-actions {
-    gap: 6px;
+    gap: 8px;
   }
   .logo {
-    font-size: 1.2rem;
+    font-size: 1.45rem;
     letter-spacing: 0.5px;
   }
   .icon-btn {
-    width: 34px;
-    height: 34px;
-    font-size: 1rem;
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
   }
   .btn {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 }
 
