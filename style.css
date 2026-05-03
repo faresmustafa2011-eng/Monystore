@@ -1597,6 +1597,65 @@ html[dir="rtl"] .nav-links {
   opacity: 0.8;
 }
 
+/* Newsletter Responsiveness */
+@media (max-width: 768px) {
+  .newsletter-inner {
+    padding: 50px 20px;
+    text-align: center;
+  }
+  
+  .newsletter-text {
+    margin-bottom: 30px;
+  }
+  
+  .newsletter-text h2 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+  }
+
+  .input-group {
+    flex-direction: column;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    gap: 15px;
+  }
+
+  .newsletter-form input {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    padding: 18px 25px;
+    width: 100%;
+    height: 60px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .newsletter-form .btn {
+    width: 100%;
+    height: 60px;
+    justify-content: center;
+    padding: 0;
+    font-size: 1.1rem;
+    box-shadow: var(--shadow-md);
+  }
+
+  .newsletter-message {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .newsletter-text h2 {
+    font-size: 1.8rem;
+  }
+  
+  .newsletter-text p {
+    font-size: 0.95rem;
+  }
+}
+
 .newsletter-admin {
   width: 100%;
   display: none;
