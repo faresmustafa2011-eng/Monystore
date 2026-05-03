@@ -2768,8 +2768,23 @@ body.dark-mode .color-btn {
 }
 
 @media (max-width: 1024px) {
+  .logo {
+    font-size: 1.6rem;
+  }
+  .nav-container {
+    padding: 0 15px;
+    overflow: visible;
+  }
+  .nav-actions {
+    gap: 10px;
+    flex-shrink: 0;
+  }
   .hamburger {
     display: flex;
+    flex-shrink: 0;
+  }
+  .icon-btn {
+    flex-shrink: 0;
   }
   .nav-links {
     position: absolute;
@@ -2813,6 +2828,12 @@ body.dark-mode .color-btn {
   html[dir="rtl"] .nav-links {
     flex-direction: column;
     text-align: center;
+    right: 0;
+    left: auto;
+  }
+
+  html[dir="rtl"] .nav-actions {
+    flex-direction: row-reverse;
   }
 
   .hero-title {
