@@ -448,6 +448,7 @@ const translations = {
     quantity: "Qty",
     added_to_cart: "Added to cart successfully!",
     cart_checkout_msg: "Hello Mony Store! 👋\n\nI want to order the following items from my cart:\n",
+    continue_shopping: "Continue Shopping",
   },
   ar: {
     nav_home: "الرئيسية",
@@ -617,6 +618,7 @@ const translations = {
     quantity: "الكمية",
     added_to_cart: "تمت الإضافة إلى العربة بنجاح!",
     cart_checkout_msg: "أهلاً موني ستور! 👋\n\nأريد طلب العناصر التالية من عربة التسوق:\n",
+    continue_shopping: "متابعة التسوق",
   },
 };
 
