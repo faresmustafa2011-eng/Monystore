@@ -735,11 +735,7 @@ function updateDynamicTranslations(lang) {
   // Re-render products to update "EGP", "Quick View", etc.
   renderProductsGrid(currentProducts, "productsGrid");
 
-  // Update back button in detail page if it's open
-  const backBtn = document.querySelector(".back-btn");
-  if (backBtn) {
-    backBtn.innerHTML = translations[lang].back;
-  }
+
 
   // Re-render product detail if open
   if (

@@ -1968,27 +1968,71 @@ html[dir="rtl"] .nav-links {
 
 /* ===== PRODUCT DETAIL PAGE ===== */
 .back-btn {
-  background: var(--card-bg);
+  background: var(--bg-color);
   border: 1px solid var(--border-color);
   color: var(--text-color);
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   margin-bottom: 30px;
-  padding: 12px 24px;
-  border-radius: 16px;
+  padding: 12px 28px;
+  border-radius: 100px;
   transition: var(--transition-bounce);
   box-shadow: var(--shadow-sm);
   z-index: 10;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.back-btn i {
+  font-size: 1.2rem;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .back-btn:hover {
-  color: var(--primary-color);
+  color: #fff;
+  background-color: var(--primary-color);
   border-color: var(--primary-color);
-  transform: translateX(-5px);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+}
+
+.back-btn:hover i {
+  transform: translateX(-6px);
+}
+
+html[dir="rtl"] .back-btn:hover i {
+  transform: translateX(6px) !important;
+}
+
+.back-btn:active {
+  transform: scale(0.95);
+}
+
+/* Tablet & Mobile Adjustments for Back Button */
+@media (max-width: 1024px) {
+  .back-btn {
+    padding: 10px 22px;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .back-btn {
+    padding: 8px 18px;
+    font-size: 0.9rem;
+    gap: 8px;
+    margin-bottom: 20px;
+    border-radius: 50px;
+  }
+  
+  .back-btn i {
+    font-size: 1rem;
+  }
 }
 
 .product-detail-grid {
@@ -2986,14 +3030,7 @@ body.dark-mode .color-btn {
     right: 80px;
   }
   
-  .back-btn {
-    margin-bottom: 25px;
-    padding: 10px 20px;
-    font-size: 0.9rem;
-    border-radius: 12px;
-    background: var(--bg-color);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  }
+
   
   .filters-bar {
     flex-direction: column;
