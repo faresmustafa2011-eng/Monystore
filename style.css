@@ -1982,9 +1982,9 @@ html[dir="rtl"] .nav-links {
   border-radius: 100px;
   transition: var(--transition-bounce);
   box-shadow: var(--shadow-sm);
-  z-index: 10;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  z-index: 100;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .back-btn i {
@@ -2012,22 +2012,30 @@ html[dir="rtl"] .back-btn:hover i {
   transform: scale(0.95);
 }
 
-/* Tablet & Mobile Adjustments for Back Button */
+/* Tablet & Mobile Adjustments - High Visibility & Accessibility */
 @media (max-width: 1024px) {
   .back-btn {
-    padding: 10px 22px;
+    position: sticky;
+    top: 90px;
+    left: 0;
+    margin-top: -30px;
+    margin-bottom: 30px;
+    padding: 10px 24px;
     font-size: 0.95rem;
-    margin-bottom: 25px;
+    background: var(--header-bg);
+    border: 1px solid var(--header-border);
+    box-shadow: var(--shadow-md);
   }
 }
 
 @media (max-width: 480px) {
   .back-btn {
+    top: 80px;
+    margin-top: -20px;
     padding: 8px 18px;
     font-size: 0.9rem;
     gap: 8px;
-    margin-bottom: 20px;
-    border-radius: 50px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   }
   
   .back-btn i {
